@@ -16,18 +16,27 @@ class App extends Component {
     })
     console.log(this.state)
   }
+  handleSubmit(event) {
+    event.preventDefault()
+    console.log("handleSubmit called")
+  }
 
   render() {
     return (
       <div>
         <div>App is here</div>
-        <input
-          type="number"
-          name="timeLeft"
-          value={this.state.timeLeft}
-          placeholder="00"
-          onChange={this.handleChange}
-        />
+        {/*timeLeft*/}
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="number"
+            name="timeLeft"
+            value={this.state.timeLeft}
+            placeholder="00"
+            onChange={this.handleChange}
+          />
+          <button>Start</button>
+        </form>
+
         <h1>{this.state.timeLeft}</h1>
       </div>
     )
