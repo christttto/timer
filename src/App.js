@@ -7,7 +7,7 @@ class App extends Component {
       timeLeft: {}
     }
   }
-
+  //
   render() {
     return <div>sanity check</div>
   }
