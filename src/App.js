@@ -5,7 +5,8 @@ class App extends Component {
     super()
     this.state = {
       minuteLeft: 0,
-      secondLeft: 0
+      secondLeft: 0,
+      counting: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -22,16 +23,18 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    console.log("handleSubmit called, start the counter")
+    const { name } = event.target
+    name === "timerFunction" ? this.countdown() : console.log("neh")
   }
+  coun
   countdown() {
-    let minute = this.state.minuteLeft
-    let second = 0
-    return (
-      <div>
-        {minute}:{second}
-      </div>
-    )
+    //decrease the clock by a second until
+    console.log("start or pause")
+    if (this.counting) {
+      this.setState({ counting: false })
+    } else {
+      console.log("false")
+    }
   }
   //needs the counter
   render() {
@@ -39,7 +42,7 @@ class App extends Component {
       <div>
         <div>App is here</div>
         {/*minuteLeft*/}
-        <form onSubmit={this.handleSubmit}>
+        <form name="timerFunction" onSubmit={this.handleSubmit}>
           <input
             type="number"
             name="minuteLeft"
@@ -47,7 +50,7 @@ class App extends Component {
             placeholder="M"
             onChange={this.handleChange}
           />
-          <button>Start</button>
+          <button name="start">Start</button>
         </form>
         {this.countdown()}
         <h1>minuteLeft:{this.state.minuteLeft}</h1>
