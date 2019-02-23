@@ -6,43 +6,30 @@ class App extends Component {
     this.state = {
       minuteLeft: 0,
       secondLeft: 0,
-      totalSecond: 0,
-      counting: false
+      totalSeconds: 0
     }
     this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.countdown = this.countdown.bind(this)
   }
   handleChange(event) {
-    console.log("handleChange called")
     const { name, value } = event.target
-    this.setState({
-      [name]: value
-    })
-    console.log(this.state)
+    this.setState({ [name]: value })
+    console.log(this.state.minuteLeft)
   }
 
   handleSubmit(event) {
     event.preventDefault()
-    const { name } = event.target
-    name === "timerFunction" ? this.countdown() : console.log("neh")
+    console.log("handleSubmit called")
+    const mySecond = this.state.minuteLeft * 60 + this.secondLeft
+    //need to adjust the totalsecond state through handle change?
+    this.setState({ totalSeconds: mySecond })
+    //error for pause and
   }
-  countdown() {
-    //decrease the clock by a second until
-    console.log("start or pause")
-    if (this.counting) {
-      this.setState({ counting: false })
-    } else {
-      console.log("false")
-    }
-  }
-  //needs the counter
   render() {
     return (
       <div>
-        <div>App is here</div>
-        {/*minuteLeft*/}
-        <form name="timerFunction" onSubmit={this.handleSubmit}>
+        <div>hourglass image here</div>
+        <form name="timer" onSubmit={this.handleSubmit}>
+          {/*minute input */}
           <input
             type="number"
             name="minuteLeft"
@@ -50,10 +37,11 @@ class App extends Component {
             placeholder="M"
             onChange={this.handleChange}
           />
-          <button name="start">Start</button>
+          {/*start*/}
+          {/*stop*/}
+          {/*show count*/}
         </form>
-        {this.countdown()}
-        <h1>minuteLeft:{this.state.minuteLeft}</h1>
+        {this.state.minuteLeft}
       </div>
     )
   }
