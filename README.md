@@ -19,12 +19,16 @@ simple timer for simple use.
    Tap the hourglass to start.
    Tap the time to start.
 
-3. Pause
+3. Pause  
    Space on keyboard.  
    Tap the hourglass to pause.  
    Tap the time to pause.
 
-4. Reset
-   Type 'R' to reset.
+4. Reset  
+   Type 'R' to reset.  
    Double tap the hourglass to reset.  
    Double tap the hour to reset.
+
+5. Flip  
+   Type 'F' to flip.
+   Shake the mobile device.

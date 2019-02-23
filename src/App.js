@@ -25,7 +25,13 @@ class App extends Component {
     console.log("handleSubmit called, start the counter")
   }
   countdown() {
-    return <div />
+    let minute = this.state.minuteLeft
+    let second = 0
+    return (
+      <div>
+        {minute}:{second}
+      </div>
+    )
   }
   //needs the counter
   render() {
