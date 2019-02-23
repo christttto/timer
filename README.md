@@ -2,7 +2,7 @@
 simple timer for simple use.  
 ## I. Initial Prototyping  
 ![alt text](prototype/20190217timer.png "Logo Title Text 1")  
-Done in Adobe XD.  
+  
 ### 1. Actions  
   1. Adjusting time
  	  Scroll the upper half of the hourglass to adjust the amount of color to adjust hours.  
