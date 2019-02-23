@@ -44,7 +44,7 @@ class App extends Component {
             type="number"
             name="minuteLeft"
             value={this.state.minuteLeft}
-            placeholder="00"
+            placeholder="M"
             onChange={this.handleChange}
           />
           <button>Start</button>
