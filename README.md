@@ -4,8 +4,8 @@ simple timer for simple use.
 
 ## I. Initial Prototyping
 
-![alt text](prototype/InitialState.png "Logo Title Text 1")  
-![alt text](prototype/Countdown.png "Logo Title Text 1")
+![alt text](prototype/InitialState.png "InitialState.png")  
+![alt text](prototype/Countdown.png "Countdown.png")
 
 ### 1. Actions
 
