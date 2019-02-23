@@ -11,6 +11,7 @@ class App extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.countdown = this.countdown.bind(this)
   }
   handleChange(event) {
     const { name, value } = event.target
@@ -24,7 +25,25 @@ class App extends Component {
     console.log("mysecond" + mySecond)
     //need to adjust the totalSecond state through handle change?
     this.setState({ totalSecond: mySecond })
-    //error for pause and
+    this.countdown()
+    //error for pause perhaps?
+    //start or stop the timer
+    //start or stop the image moving
+    console.log("finished countdown")
+  }
+  countdown() {
+    if (this.isCounting) {
+      console.log("stop")
+      this.setState(prevState => {
+        return { isCounting: !prevState.isCounting }
+      })
+    } else {
+      console.log("start")
+      //not working for some reason
+      this.setState(prevState => {
+        return { isCounting: !prevState.isCounting }
+      })
+    }
   }
   render() {
     return (
@@ -40,7 +59,7 @@ class App extends Component {
             onChange={this.handleChange}
           />
           {/*start*/}
-          <button>start</button>
+          <button>{this.state.isCounting ? "Stop" : "Start"}</button>
           {/*stop*/}
           {/*show count*/}
         </form>
