@@ -4,9 +4,22 @@ simple timer for simple use.
 ![alt text](prototype/20190217timer.png "Logo Title Text 1")  
 Done in Adobe XD.  
 ### Actions  
-  1. Starting  
+  1. Adjusting time
  	  Scroll the upper half of the hourglass to adjust the amount of color to adjust hours.  
-    Max to make it 30 minutes. Possibly in log.  
-  2. Adjusting  
-    Tap to pause.  
-    Double tap to reset.  
+    Type it into the text input at the bottom
+    Max to make it 30 minutes.   
+    
+  2. Starting  
+    Space on keyboard.
+    Tap the hourglass to start.
+    Tap the time to start.
+    
+  3. Pause
+    Space on keyboard.  
+    Tap the hourglass to pause.  
+    Tap the time to pause.
+    
+  4. Reset
+    Type 'R' to reset.
+    Double tap the hourglass to reset.  
+    Double tap the hour to reset.  
