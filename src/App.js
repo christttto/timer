@@ -7,7 +7,13 @@ class App extends Component {
       timeLeft: {}
     }
   }
-  //
+  //adjust time
+  //start
+  //pause
+  //reset
+  //reverse
+
+  //1. create something to hold hour value
   render() {
     return <div>sanity check</div>
   }

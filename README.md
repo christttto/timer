@@ -8,7 +8,7 @@ simple timer for simple use.
 
 ### 1. Actions
 
-1. Adjusting time
+1. Adjusting time  
    Scroll the upper half of the hourglass to adjust the amount of color to adjust hours.  
    Type it into the text input at the bottom
    Max to make it 30 minutes.
