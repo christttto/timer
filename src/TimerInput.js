@@ -1,6 +1,11 @@
 import React from "react"
 
 function TimerInput(props) {
-  return <div>TimerInput here</div>
+  return (
+    <div>
+      <input type="number" placeHolder="00" />
+    </div>
+  )
 }
+
 export default TimerInput
