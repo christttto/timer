@@ -6,9 +6,11 @@ class App extends Component {
     this.state = {
       minuteLeft: 0,
       secondLeft: 0,
-      totalSeconds: 0
+      totalSecond: 0,
+      isCounting: false
     }
     this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
   handleChange(event) {
     const { name, value } = event.target
@@ -18,10 +20,10 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    console.log("handleSubmit called")
-    const mySecond = this.state.minuteLeft * 60 + this.secondLeft
-    //need to adjust the totalsecond state through handle change?
-    this.setState({ totalSeconds: mySecond })
+    const mySecond = this.state.minuteLeft * 60 + this.state.secondLeft
+    console.log("mysecond" + mySecond)
+    //need to adjust the totalSecond state through handle change?
+    this.setState({ totalSecond: mySecond })
     //error for pause and
   }
   render() {
@@ -38,10 +40,14 @@ class App extends Component {
             onChange={this.handleChange}
           />
           {/*start*/}
+          <button>start</button>
           {/*stop*/}
           {/*show count*/}
         </form>
-        {this.state.minuteLeft}
+        <h1>
+          minuteLeft:{this.state.minuteLeft} secondLeft:{this.state.secondLeft}{" "}
+          totalSecond:{this.state.totalSecond}
+        </h1>
       </div>
     )
   }
