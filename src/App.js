@@ -32,18 +32,29 @@ class App extends Component {
     console.log("finished countdown")
   }
   countdown() {
+    let id
     if (this.isCounting) {
       console.log("stop")
       this.setState(prevState => {
         return { isCounting: !prevState.isCounting }
       })
+      clearInterval(id)
+      //stop immediately
     } else {
       console.log("start")
-      //not working for some reason
       this.setState(prevState => {
         return { isCounting: !prevState.isCounting }
       })
+      //start counting until no hour left
+      id = setInterval(() => {
+        this.totalSecond <= 0
+          ? clearInterval(id)
+          : this.setState(prevState => {
+              return { totalSecond: prevState.totalSecond - 1 }
+            })
+      }, 1000)
     }
+    console.log("countdownfinished")
   }
   render() {
     return (
