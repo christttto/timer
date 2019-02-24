@@ -22,10 +22,8 @@ class App extends Component {
   handleSubmit(event) {
     event.preventDefault()
     const mySecond = this.state.minuteLeft * 60 + this.state.secondLeft
-    console.log("mysecond" + mySecond)
     this.setState({ totalSecond: mySecond })
     this.countdown()
-    console.log("finished countdown")
   }
 
   countdown() {
@@ -39,8 +37,6 @@ class App extends Component {
         }
       })
     }, 1000)
-
-    console.log("countdownfinished")
   }
 
   render() {
@@ -48,7 +44,6 @@ class App extends Component {
       <div>
         <div>hourglass image here</div>
         <form name="timer" onSubmit={this.handleSubmit}>
-          {/*minute input */}
           <input
             type="number"
             name="minuteLeft"
@@ -56,10 +51,7 @@ class App extends Component {
             placeholder="M"
             onChange={this.handleChange}
           />
-          {/*start*/}
           <button>start</button>
-          {/*stop*/}
-          {/*show count*/}
         </form>
         <h1>
           {Math.floor(this.state.totalSecond / 60)}:
