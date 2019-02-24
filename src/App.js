@@ -7,11 +7,21 @@ class App extends Component {
       minuteLeft: 0,
       secondLeft: 0,
       totalSecond: 0,
+      tempSecond: 3,
       isCounting: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.countdown = this.countdown.bind(this)
+    const down = setInterval(() => {
+      if (this.state.totalSecond <= 0) {
+        clearInterval(down)
+      }
+      this.setState(prevState => {
+        return { totalSecond: prevState.totalSecond - 1 }
+      })
+    }, 1000)
+    const stop = clearInterval(down)
   }
   handleChange(event) {
     const { name, value } = event.target
@@ -32,30 +42,33 @@ class App extends Component {
     console.log("finished countdown")
   }
   countdown() {
-    let id
     if (this.isCounting) {
       console.log("stop")
       this.setState(prevState => {
         return { isCounting: !prevState.isCounting }
       })
-      clearInterval(id)
       //stop immediately
+      clearInterval(this.down)
     } else {
       console.log("start")
       this.setState(prevState => {
         return { isCounting: !prevState.isCounting }
       })
       //start counting until no hour left
-      id = setInterval(() => {
-        this.totalSecond <= 0
-          ? clearInterval(id)
-          : this.setState(prevState => {
-              return { totalSecond: prevState.totalSecond - 1 }
-            })
+      const down = setInterval(() => {
+        console.log(this.state.tempSecond)
+        if (this.state.tempSecond === 1) {
+          console.log("stoppp")
+          clearInterval(down)
+        }
+        this.setState(prevState => {
+          return { tempSecond: prevState.tempSecond - 1 }
+        })
       }, 1000)
     }
     console.log("countdownfinished")
   }
+
   render() {
     return (
       <div>
@@ -76,7 +89,7 @@ class App extends Component {
         </form>
         <h1>
           minuteLeft:{this.state.minuteLeft} secondLeft:{this.state.secondLeft}{" "}
-          totalSecond:{this.state.totalSecond}
+          tempSecond:{this.state.tempSecond}
         </h1>
       </div>
     )
