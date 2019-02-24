@@ -7,7 +7,7 @@ class App extends Component {
       minuteLeft: 0,
       secondLeft: 0,
       totalSecond: 0,
-      tempSecond: 3,
+      tempSecond: 5,
       isCounting: false
     }
     this.handleChange = this.handleChange.bind(this)
@@ -42,7 +42,7 @@ class App extends Component {
     console.log("finished countdown")
   }
   countdown() {
-    if (this.isCounting) {
+    if (this.state.isCounting) {
       console.log("stop")
       this.setState(prevState => {
         return { isCounting: !prevState.isCounting }
@@ -57,13 +57,14 @@ class App extends Component {
       //start counting until no hour left
       const down = setInterval(() => {
         console.log(this.state.tempSecond)
-        if (this.state.tempSecond === 1) {
+        if (this.state.tempSecond < 2) {
           console.log("stoppp")
           clearInterval(down)
+        } else {
+          this.setState(prevState => {
+            return { tempSecond: prevState.tempSecond - 1 }
+          })
         }
-        this.setState(prevState => {
-          return { tempSecond: prevState.tempSecond - 1 }
-        })
       }, 1000)
     }
     console.log("countdownfinished")
