@@ -27,6 +27,7 @@ class App extends Component {
   }
 
   countdown() {
+    //when clicked several times, expediates the process
     const myDown = setInterval(() => {
       if (this.state.totalSecond < 2) {
         clearInterval(myDown)
@@ -38,7 +39,8 @@ class App extends Component {
       })
     }, 1000)
   }
-
+  //how to create sand falling off
+  //have png of hourglass with hole, have image of sand going down behind.
   render() {
     return (
       <div>
