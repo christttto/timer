@@ -7,21 +7,11 @@ class App extends Component {
       minuteLeft: 0,
       secondLeft: 0,
       totalSecond: 0,
-      tempSecond: 5,
       isCounting: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.countdown = this.countdown.bind(this)
-    const down = setInterval(() => {
-      if (this.state.totalSecond <= 0) {
-        clearInterval(down)
-      }
-      this.setState(prevState => {
-        return { totalSecond: prevState.totalSecond - 1 }
-      })
-    }, 1000)
-    const stop = clearInterval(down)
   }
   handleChange(event) {
     const { name, value } = event.target
@@ -33,40 +23,23 @@ class App extends Component {
     event.preventDefault()
     const mySecond = this.state.minuteLeft * 60 + this.state.secondLeft
     console.log("mysecond" + mySecond)
-    //need to adjust the totalSecond state through handle change?
     this.setState({ totalSecond: mySecond })
     this.countdown()
-    //error for pause perhaps?
-    //start or stop the timer
-    //start or stop the image moving
     console.log("finished countdown")
   }
+
   countdown() {
-    if (this.state.isCounting) {
-      console.log("stop")
+    const myDown = setInterval(() => {
+      if (this.state.totalSecond < 2) {
+        clearInterval(myDown)
+      }
       this.setState(prevState => {
-        return { isCounting: !prevState.isCounting }
-      })
-      //stop immediately
-      clearInterval(this.down)
-    } else {
-      console.log("start")
-      this.setState(prevState => {
-        return { isCounting: !prevState.isCounting }
-      })
-      //start counting until no hour left
-      const down = setInterval(() => {
-        console.log(this.state.tempSecond)
-        if (this.state.tempSecond < 2) {
-          console.log("stoppp")
-          clearInterval(down)
-        } else {
-          this.setState(prevState => {
-            return { tempSecond: prevState.tempSecond - 1 }
-          })
+        return {
+          totalSecond: prevState.totalSecond - 1
         }
-      }, 1000)
-    }
+      })
+    }, 1000)
+
     console.log("countdownfinished")
   }
 
@@ -84,13 +57,13 @@ class App extends Component {
             onChange={this.handleChange}
           />
           {/*start*/}
-          <button>{this.state.isCounting ? "Stop" : "Start"}</button>
+          <button>start</button>
           {/*stop*/}
           {/*show count*/}
         </form>
         <h1>
-          minuteLeft:{this.state.minuteLeft} secondLeft:{this.state.secondLeft}{" "}
-          tempSecond:{this.state.tempSecond}
+          {Math.floor(this.state.totalSecond / 60)}:
+          {this.state.totalSecond % 60}
         </h1>
       </div>
     )
