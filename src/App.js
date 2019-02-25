@@ -27,7 +27,7 @@ class App extends Component {
   handleSubmit(event) {
     event.preventDefault()
     const mySecond = this.state.minuteLeft * 60 + this.state.secondLeft
-    const mySandStep = 600 / mySecond
+    const mySandStep = 300 / mySecond
     this.setState({ totalSecond: mySecond, sandStep: mySandStep })
     this.countdown()
   }
