@@ -21,7 +21,6 @@ class App extends Component {
   handleChange(event) {
     const { name, value } = event.target
     this.setState({ [name]: value })
-    console.log(this.state.minuteLeft)
   }
 
   handleSubmit(event) {
@@ -52,6 +51,7 @@ class App extends Component {
       if (this.state.totalSecond < 2) {
         clearInterval(myDown)
         //clean up the sand to be back up
+        alert("Times up! please refresh for another use :]")
       }
 
       this.setState(prevState => {
@@ -60,14 +60,13 @@ class App extends Component {
           sandPosition: Math.floor(prevState.sandPosition + prevState.sandStep)
         }
       })
-      console.log(this.state.sandPosition)
     }, 1000)
   }
   //how to create sand falling off
   //have png of hourglass with hole, have image of sand going down behind.
   render() {
     return (
-      <div class="Timer-Display">
+      <div className="Timer-Display">
         <div>
           {this.sandFlow(this.state.sandPosition)}
           <img
