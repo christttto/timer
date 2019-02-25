@@ -1,4 +1,6 @@
 import React, { Component } from "react"
+import Hourglass from "./image/hourglass.png"
+import Sand from "./image/sand.png"
 
 class App extends Component {
   constructor() {
@@ -44,7 +46,31 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div>hourglass image here</div>
+        <div>
+          <img
+            style={{
+              position: "absolute",
+              top: "0px",
+              left: "0px",
+              height: "600px"
+            }}
+            src={Sand}
+            alt="Sand"
+          />
+          <img
+            style={{
+              position: "relative",
+              height: "1200px"
+            }}
+            src={Hourglass}
+            alt="Hourglass"
+          />
+        </div>
+
+        <h1>
+          {Math.floor(this.state.totalSecond / 60)}:
+          {this.state.totalSecond % 60}
+        </h1>
         <form name="timer" onSubmit={this.handleSubmit}>
           <input
             type="number"
@@ -55,10 +81,7 @@ class App extends Component {
           />
           <button>start</button>
         </form>
-        <h1>
-          {Math.floor(this.state.totalSecond / 60)}:
-          {this.state.totalSecond % 60}
-        </h1>
+        {Hourglass.clientWidth}
       </div>
     )
   }
