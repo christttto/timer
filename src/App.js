@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import Hourglass from "./image/hourglass.png"
 import Sand from "./image/sand.png"
-
+import "./App.css"
 class App extends Component {
   constructor() {
     super()
@@ -38,7 +38,7 @@ class App extends Component {
           //moving this...maybe make a method that renders the image given speicifc position
           position: "absolute",
           top: move /**take a variable in */,
-          left: "0px",
+
           height: "300px"
         }}
         src={Sand}
@@ -67,7 +67,7 @@ class App extends Component {
   //have png of hourglass with hole, have image of sand going down behind.
   render() {
     return (
-      <div>
+      <div class="Timer-Display">
         <div>
           {this.sandFlow(this.state.sandPosition)}
           <img

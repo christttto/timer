@@ -31,3 +31,8 @@
     transform: rotate(360deg);
   }
 }
+
+.Timer-Display {
+  margin: auto;
+  text-align: center;
+}
