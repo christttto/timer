@@ -51,6 +51,7 @@ class App extends Component {
     const myDown = setInterval(() => {
       if (this.state.totalSecond < 2) {
         clearInterval(myDown)
+        //clean up the sand to be back up
       }
 
       this.setState(prevState => {
